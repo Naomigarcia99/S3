@@ -38,7 +38,18 @@ function orderAlphabetically(array) {
 }
 
 // Exercise 5: Order by year, ascending
-function orderByYear() {}
+function orderByYear(array) {
+  let result = array.toSorted((a, b) =>
+    a.year !== b.year
+      ? a.year - b.year
+      : a.title
+          .toString()
+          .toLowerCase()
+          .localeCompare(b.title.toString().toLowerCase())
+  );
+
+  return result;
+}
 
 // Exercise 6: Calculate the average of the movies in a category
 function moviesAverageByCategory() {}
