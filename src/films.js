@@ -62,10 +62,33 @@ function moviesAverageByCategory(array, genre) {
 
   return media;
 }
-console.log(moviesAverageByCategory(movies, 'Crime'));
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {}
+function hoursToMinutes(array) {
+  let horas = 0;
+  let min = 0;
+
+  let duracion = array.map((movie) => {
+    horas = 0;
+    min = 0;
+
+    let separada = movie.duration.split(' ');
+
+    separada.forEach((parte) => {
+      if (parte.includes('h')) {
+        horas = parseInt(parte);
+      } else if (parte.includes('min')) {
+        min = parseInt(parte);
+      }
+    });
+
+    let totalMinutos = horas * 60 + min;
+
+    return { ...movie, duration: totalMinutos };
+  });
+
+  return duracion;
+}
 
 // Exercise 8: Get the best film of a year
 function bestFilmOfYear() {}
